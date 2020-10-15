@@ -1,0 +1,41 @@
+headerの読み込みに使う
+<?php get_header();?>
+
+footerの読み込みに使う
+<?php get_footer();?>
+
+見出しの表示
+<?php bloginfo('description')?>
+
+ホームのurl
+<?php echo home_url();?>
+
+画像やファイルの読み込みに
+<?php echo get_template_directory_uri();?>/フォルダ名/ファイル名
+
+タイトルはこれでOK(functions.php)
+add_theme_support('title-tag');
+
+head内に記述
+<?php wp_head();?>
+
+bodyの一番上に記述(基本的にはheader.phpで読み込む)
+<?php wp_body_open();?>
+
+bodyの一番下に記述(基本的にはfooter.phpで読み込む)
+<?php wp_footer();?>
+
+jQueryの読み込み
+<?php wp_enqueue_script('jquery');?>
+
+font-awesomeの読み込み
+<?php wp_enqueue_style('font-awesome','https://use.fontawesome.com/releases/v5.6.1/css/all.css')?>
+
+サムネイルを使えるようにする(functions.phpに記述する)
+add_theme_support('post-thumbnails');
+
+投稿を表示
+<?php if (have_posts()):?>
+<?php while(have_posts()):the_post();?>
+<?php endwhile;?>
+<?php endif;?>
